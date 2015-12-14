@@ -90,6 +90,7 @@ trait ElasticquentCollectionTrait
         }
         return \Elasticsearch\ClientBuilder::fromConfig($config);
 
+        return new \Elasticsearch\Client($config);
     }
 
 }
