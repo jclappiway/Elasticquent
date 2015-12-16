@@ -238,7 +238,7 @@ trait ElasticquentTrait
      *
      * @return ResultCollection
      */
-    public static function searchByQuery($query = null, $aggregations = null, $sourceFields = null, $limit = null, $offset = null, $sort = null)
+    public static function searchByQuery($query = null, $aggregations = null, $sourceFields = null, $limit = null, $offset = null, $sort = null, $postFilter = null)
     {
         $instance = new static;
 
@@ -250,6 +250,10 @@ trait ElasticquentTrait
 
         if ($query) {
             $params['body']['query'] = $query;
+        }
+
+        if ($postFilter) {
+            $params['body']['post_filter'] = $postFilter;
         }
 
         if ($aggregations) {
